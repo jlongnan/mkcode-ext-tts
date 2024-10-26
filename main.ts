@@ -2,14 +2,13 @@
 namespace TTSModule {
     let initialized = false;
 
-    //% block="init TTS module with TX %tx RX %rx"
-    export function init(tx: DigitalPin, rx: DigitalPin): void {
-        if (!initialized) {
-            serial.redirect(tx, rx, BaudRate.BaudRate115200);
-            initialized = true;
-            basic.pause(1000); // Allow time for initialization
-        }
-    }
+	// Define a block with TX and RX pin parameters
+	//% block="initialize TTS with TX %tx|RX %rx"
+	//% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
+	//% rx.fieldEditor="gridpicker" rx.fieldOptions.columns=3
+	export function initTTS(tx: SerialPin, rx: SerialPin): void {
+		serial.redirect(tx, rx, BaudRate.BaudRate9600);
+	}
 
     //% block="send hex string %hexStr to TTS module"
     export function sendText(hexStr: string): void {
