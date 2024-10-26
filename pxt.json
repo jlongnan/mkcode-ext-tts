@@ -1,0 +1,12 @@
+{
+   "name": "NanTTS",
+   "version": "0.0.1",
+   "description": "TTS extension",
+   "dependencies": {
+       "core": "*",
+       "radio": "*"
+   },
+   "files": [
+       "main.ts"
+   ]
+}
