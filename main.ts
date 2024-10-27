@@ -6,7 +6,11 @@ namespace TTSModule {
 	//% tx.defl=SerialPin.P0
 	//% rx.defl=SerialPin.P1
 	export function initTTS(tx: SerialPin, rx: SerialPin): void {
-		serial.redirect(tx, rx, BaudRate.BaudRate9600);
+        if (!initialized) {
+            serial.redirect(tx, rx, BaudRate.BaudRate9600);
+            initialized = true;
+            basic.pause(1000); // Allow time for initialization
+        }
 	}
 
     //% block="send hex string %hexStr to TTS module"
