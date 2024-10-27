@@ -28,7 +28,7 @@ namespace TTSModule {
         let encoding = 0x01; // GB2312 encoding
 
         // Create a buffer with the required packet structure
-        let packet = pins.createBuffer(4 + gb2312Buffer.length);
+        let packet = pins.createBuffer(5 + gb2312Buffer.length);
         packet.setNumber(NumberFormat.UInt8BE, 0, header);
         packet.setNumber(NumberFormat.UInt16BE, 1, dataLength);
         packet.setNumber(NumberFormat.UInt8BE, 3, command);
